@@ -1,0 +1,9 @@
+PSQL note:
+login as mysql -uroot -p
+USE my_data; (if I don't have one, cerate a database CREATE DATABASE _NAME_;
+
+Load database is:
+show databases;
+
+CREATE TABLE users(id int NOT NULL AUTO_INCREMENT, username varchar(20), password varchar(100), PRIMARY KEY (id));
+

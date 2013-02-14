@@ -1,0 +1,47 @@
+ CREATE TABLE notification(id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, username varchar(20), data VARCHAR(100), lv CHAR(1) DEFAULT 0, dt DATETIME, del CHAR(1) DEFAULT 0, del_dt DATETIME);
+
+UGP (Public, Group, User) SO 1 self, 2 group+self, 3 public+group+self
+ 
+ INSERT INTO notification(username, data, lv, dt) values('kimtaeh3','Hello World! testing!', '3', NOW());
+
+
+students table - maps username/table - courses -
+
+attendence table:(profID, timestamp, classID) student
+
+grade table:(StudentId, CourseID, TestID), grade
+
+ADDING COLUMN
+ALTER TABLE users ADD lv CHAR(1) DEFAULT '1' AFTER username;
+
+SETTING SPECIFIC COLUMN
+UPDATE users SET lv = '3' WHERE id<19;
+UPDATE users SET del_dt = NULL, del=0 WHERE username='amy';
+
+
+***** SHOW CREATE TABLE t\G
+
+TABLE NOTIFICATIONS:
+Create Table: CREATE TABLE notification(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  username varchar(20) DEFAULT NULL,
+  data varchar(100) DEFAULT NULL,
+  lv char(1) DEFAULT NULL,
+  dt datetime DEFAULT NULL,
+  del tinyint(1) NOT NULL DEFAULT '0',
+  del_dt datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+)
+
+TABLE USERS:
+ CREATE TABLE users(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  username varchar(20) DEFAULT NULL,
+  lv char(1) DEFAULT '1',
+  lastname varchar(20) DEFAULT NULL,
+  firstname varchar(20) DEFAULT NULL,
+  password varchar(100) DEFAULT NULL,
+  del tinyint(1) NOT NULL DEFAULT '0',
+  del_dt datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+)
